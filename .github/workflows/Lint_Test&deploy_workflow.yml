@@ -1,0 +1,32 @@
+name: Lint, Test & Deploy in one worker
+
+on:
+  push:
+    branches:
+      - Practice_task
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+
+      - name: Set dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm lint
+      - name: Run test
+        run: npm test
+
+      - name: Run deploy
+        run: npm build
+
+      - name: Deploying
+        run: echo "Deploying mother fuckers..."
