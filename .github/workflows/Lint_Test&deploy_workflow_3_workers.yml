@@ -1,7 +1,7 @@
 name: Lint, Test & Deploy by 3 workers
 
 on:
-  workflow_dispatch:
+  push:
     branches:
       - Practice_task
 
