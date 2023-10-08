@@ -1,0 +1,58 @@
+name: Lint, Test & Deploy by 3 workers
+
+on:
+  workflow_dispatch:
+    branches:
+      - Practice_task
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+
+      - name: Set dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+
+      - name: Set dependencies
+        run: npm ci
+
+      - name: Run test
+        run: npm run test
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+
+      - name: Set dependencies
+        run: npm ci
+
+      - name: Run deploy
+        run: npm run build
+
+      - name: Deploying
+        run: echo "Deploying mother fuckers..."
