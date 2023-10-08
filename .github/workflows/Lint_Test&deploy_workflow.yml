@@ -21,12 +21,12 @@ jobs:
         run: npm ci
 
       - name: Run lint
-        run: npm lint
+        run: npm run lint
       - name: Run test
-        run: npm test
+        run: npm run test
 
       - name: Run deploy
-        run: npm build
+        run: npm run build
 
       - name: Deploying
         run: echo "Deploying mother fuckers..."
