@@ -1,10 +1,11 @@
 name: Events Demo 1
 on:
   pull_request:
-    tepes:
+    types:
       - opened
       - edited
-  workflow_dispatch:
+  push:
+    branches: -Practice_*
 
 jobs:
   deploy:
